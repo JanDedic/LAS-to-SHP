@@ -12,8 +12,8 @@ def convert_pointcloud_to_shapefile(input_file, output_file):
     if ext == ".las":
         # Načtení LAS souboru
         with laspy.open(input_file) as las:
-            mask = point_data.classification == 2   #klasifikace pouze ground bodů
             point_data = las.read()
+            mask = point_data.classification == 2   #klasifikace pouze ground bodů
             x = point_data.x[mask]
             y = point_data.y[mask]
             z = point_data.z[mask]
